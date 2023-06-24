@@ -1,3 +1,5 @@
+import { schemaCreateElection } from '../../helpers/validation/election.validation'
+import { validateRequest } from '../../helpers/validation/validation'
 import * as ServiceElection from '../../services/election.service'
 import {
   createRequestElectionForUpdate,
@@ -35,6 +37,10 @@ const getAllElection = async (_, res) => {
 const createElection = async (req, res) => {
   try {
     const request = req.body
+    const errorValidation = validateRequest(request, schemaCreateElection())
+    if (errorValidation) {
+      return res.status(400).json({ error: errorValidation })
+    }
     const result = await ServiceElection.createElection(request)
     if (result) {
       const { id } = result
