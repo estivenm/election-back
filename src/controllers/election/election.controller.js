@@ -3,6 +3,7 @@ import { validateRequest } from '../../helpers/validation/validation.js'
 import * as ServiceElection from '../../services/election.service.js'
 import {
   createRequestElectionForUpdate,
+  mapperElection,
   mapperListElection
 } from './election.builder.js'
 
@@ -14,7 +15,8 @@ const getElectionById = async (req, res) => {
       const error = { message: 'Election by id not found' }
       return res.status(404).json(error)
     }
-    return res.json(result)
+    const response = mapperElection(result)
+    return res.json(response)
   } catch (error) {
     console.log(error)
     return res.status(500).json(error)
