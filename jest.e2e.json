@@ -1,0 +1,11 @@
+{
+  "moduleFileExtensions": ["js"],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e.js$",
+  "coveragePathIgnorePatterns": ["/node_modules/"],
+  "transform": {
+    "^.+\\.js$": "babel-jest"
+  },
+  "coverageDirectory": "coverage_e2e"
+}

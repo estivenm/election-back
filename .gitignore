@@ -1,2 +1,6 @@
 node_modules/
 .env.dev
+
+#coverages
+coverage
+coverage_e2e
