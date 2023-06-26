@@ -1,0 +1,131 @@
+paths:
+  /elections:
+    get:
+      tags:
+        - Elections
+      summary: Get all elections
+      description: Retrieves a list of all elections
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Election'
+    post:
+      tags:
+        - Elections
+      summary: Create a new election
+      description: Creates a new election with the provided data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewElection'
+      responses:
+        '201':
+          description: Election created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Election'
+  /elections/{id}:
+    get:
+      tags:
+        - Elections
+      summary: Get an election by ID
+      description: Retrieves an election based on the provided ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the election to retrieve
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Election'
+        '404':
+          description: Election not found
+    paths:
+    put:
+      summary: updated election for ID
+      tags:
+        - Elections
+      parameters:
+        - name: id
+          in: path
+          description: Id of election
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ElectionUpdateRequestBody'
+      responses:
+        '200':
+          description: OK - Election updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ElectionUpdateResponse'
+
+components:
+  schemas:
+    NewElection:
+      type: object
+      properties:
+        title:
+          type: string
+          example: 'Election for example 2050'
+        description:
+          type: string
+          example: 'Election for example 2050'
+    Election:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+          format: date-time
+        active:
+          type: boolean
+        dateCreation:
+          type: string
+          format: date-time
+    ElectionUpdateRequestBody:
+      type: object
+      properties:
+        title:
+          type: string
+          example: 'Election for example update 2050'
+        description:
+          type: string
+          example: 'Election for example update 2050'
+
+    ElectionUpdateResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: 'Message successfully'
+          example: 'Election updated successfully'
+        modifiedCount:
+          type: number
+          description: Number of elections updates
+          example: 1

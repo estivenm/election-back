@@ -1,10 +1,10 @@
-import { schemaCreateElection } from '../../helpers/validation/election.validation'
-import { validateRequest } from '../../helpers/validation/validation'
-import * as ServiceElection from '../../services/election.service'
+import { schemaCreateElection } from '../../helpers/validation/election.validation.js'
+import { validateRequest } from '../../helpers/validation/validation.js'
+import * as ServiceElection from '../../services/election.service.js'
 import {
   createRequestElectionForUpdate,
   mapperListElection
-} from './election.builder'
+} from './election.builder.js'
 
 const getElectionById = async (req, res) => {
   try {

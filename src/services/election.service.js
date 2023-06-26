@@ -1,4 +1,4 @@
-import * as repositoryElection from '../repositories/election.repositorie'
+import * as repositoryElection from '../repositories/election.repositorie.js'
 
 const getElectionById = async (electionId) => {
   try {

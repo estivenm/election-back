@@ -1,11 +1,10 @@
-import { initMongoConnection } from './src/db/index'
-import dotenv from 'dotenv'
 import { initApp } from './src/app.js'
-dotenv.config({ path: '.env.dev' })
+import { env } from './src/constants/constants.js'
+import { initMongoConnection } from './src/db/index.js'
 
 const app = initApp()
 
-app.listen(process.env.PORT, () => {
-  initMongoConnection(process.env.MONGO_URI)
-  console.log(`Server running on port ${process.env.PORT}`)
+app.listen(env.PORT, () => {
+  initMongoConnection(env.MONGO_URI)
+  console.log(`Server running on port ${env.PORT}`)
 })

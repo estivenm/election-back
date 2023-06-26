@@ -4,7 +4,7 @@ import {
   createElection,
   getAllElection,
   updateElection
-} from '../controllers/election/election.controller'
+} from '../controllers/election/election.controller.js'
 
 const router = Router()
 

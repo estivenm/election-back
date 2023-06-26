@@ -1,4 +1,4 @@
-import ElectionModel from '../schemas/elections.schema'
+import ElectionModel from '../schemas/elections.schema.js'
 
 const getElectionById = async (electionId) => {
   try {
