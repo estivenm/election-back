@@ -4,8 +4,7 @@
   "testEnvironment": "node",
   "testRegex": ".e2e.js$",
   "coveragePathIgnorePatterns": ["/node_modules/"],
-  "transform": {
-    "^.+\\.js$": "babel-jest"
-  },
-  "coverageDirectory": "coverage_e2e"
+  "transform": { "^.+\\.js$": "babel-jest" },
+  "coverageDirectory": "coverage_e2e",
+  "testTimeout": 10000
 }

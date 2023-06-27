@@ -9,8 +9,8 @@
     "start": "node --experimental-modules --es-module-specifier-resolution=node index.js",
     "dev-ts": "nodemon --exec ts-node src/index.ts",
     "dev": "nodemon",
-    "e2e": "jest --config ./jest.e2e.json --verbose --detectOpenHandles --forceExit",
-    "e2e:coverage": "jest --config ./jest.e2e.json --verbose --forceExit --coverage"
+    "e2e": "jest --config ./jest.e2e.json --verbose --forceExit --runInBand",
+    "e2e:coverage": "jest --config ./jest.e2e.json --verbose --detectOpenHandles  --runInBand --forceExit --coverage"
   },
   "author": "Juan Estiven Mazo",
   "license": "ISC",

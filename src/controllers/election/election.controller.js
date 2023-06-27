@@ -44,6 +44,7 @@ const createElection = async (req, res) => {
       return res.status(400).json({ error: errorValidation })
     }
     const result = await ServiceElection.createElection(request)
+
     if (result) {
       const { id } = result
       const response = { id, message: 'Election create successfully' }
