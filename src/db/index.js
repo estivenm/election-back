@@ -5,7 +5,8 @@ const initMongoConnection = (uri) => {
     .then((db) => {
       console.log(
         'Connection established with the database',
-        db.connections[0].name
+        db.connections[0].name,
+        '🥳'
       )
     })
     .catch((error) => {

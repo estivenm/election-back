@@ -1,6 +1,7 @@
-import { env } from '../constants/constants.js'
-const devHost = `http://localhost:${env.PORT}`
-const basePath = '/api/v1/'
+import { env } from '../utils/constants.js'
+const HOST_DEV = `http://localhost:${env.PORT}`
+const BASE_PATH = env.BASE_PATH
+const HOST_PDN = env.HOST_PDN
 
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -11,15 +12,19 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: '{host}{basePath}',
-      description: 'The Election API server v1.0.0 localhost',
+      url: `${HOST_DEV}${BASE_PATH}`,
+      description: 'localhost',
       variables: {
-        host: {
-          default: devHost
-        },
-        basePath: {
-          default: basePath
-        }
+        host: { default: HOST_DEV },
+        basePath: { default: BASE_PATH }
+      }
+    },
+    {
+      url: `${HOST_PDN}${BASE_PATH}`,
+      description: 'PDN',
+      variables: {
+        host: { default: 'https://estivenm-election-back.onrender.com' },
+        basePath: { default: BASE_PATH }
       }
     }
   ]
