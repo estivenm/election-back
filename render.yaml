@@ -1,0 +1,3 @@
+hooks:
+  build:
+    command: npm start && npm run e2e

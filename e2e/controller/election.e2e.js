@@ -1,7 +1,7 @@
 import supertest from 'supertest'
-import { env } from '../../src/constants/constants'
 import { initApp } from '../../src/app'
 import * as ServiceElection from '../../src/services/election.service'
+import { env } from '../../src/utils/constants'
 
 describe('Test for election', () => {
   let app, server, requestWithSupertest
