@@ -67,4 +67,24 @@ const updateElection = async (req, res) => {
   }
 }
 
-export { getElectionById, createElection, getAllElection, updateElection }
+const deleteElectionById = async (req, res) => {
+  try {
+    const electionId = req.params.id
+    const result = await ServiceElection.deleteElectionById(electionId)
+    if (!result) {
+      const error = { message: 'Election by id not found' }
+      return res.status(404).json(error)
+    }
+    return res.json(result)
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json(error)
+  }
+}
+export {
+  getElectionById,
+  createElection,
+  getAllElection,
+  updateElection,
+  deleteElectionById
+}

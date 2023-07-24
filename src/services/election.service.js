@@ -32,4 +32,18 @@ const updateElection = async (dataElection) => {
     throw new Error(error)
   }
 }
-export { getElectionById, createElection, getAllElection, updateElection }
+
+const deleteElectionById = async (electionId) => {
+  try {
+    return await repositoryElection.deleteElectionById(electionId)
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+export {
+  getElectionById,
+  createElection,
+  getAllElection,
+  updateElection,
+  deleteElectionById
+}

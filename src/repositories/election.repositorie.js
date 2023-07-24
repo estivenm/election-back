@@ -41,4 +41,18 @@ const updateElection = async (dataElection) => {
   }
 }
 
-export { getElectionById, createElection, getAllElection, updateElection }
+const deleteElectionById = async (electionId) => {
+  try {
+    const query = { _id: electionId }
+    const result = await ElectionModel.deleteOne(query)
+    return result
+  } catch (error) {}
+}
+
+export {
+  getElectionById,
+  createElection,
+  getAllElection,
+  updateElection,
+  deleteElectionById
+}
